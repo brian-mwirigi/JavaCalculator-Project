@@ -5,20 +5,31 @@ import calculator.exceptions.InvalidBinaryNumberException;
 import calculator.exceptions.DivisionByZeroException;
 
 public class BinaryDivision extends AbstractBinaryOperation {
+    
     public String calculate(String num1, String num2) {
+        String answer = "";
+        
         try {
-            int n1 = binaryToDecimal(num1);
-            int n2 = binaryToDecimal(num2);
-            if (n2 == 0) {
+            int decimal1 = binaryToDecimal(num1);
+            int decimal2 = binaryToDecimal(num2);
+            
+            if (decimal2 == 0) {
                 throw new DivisionByZeroException("Cannot divide by zero");
             }
-            int result = n1 / n2;
-            return decimalToBinary(result);
+            
+            int quotient = 0;
+            quotient = decimal1 / decimal2;
+            
+            String binaryAnswer = decimalToBinary(quotient);
+            answer = binaryAnswer;
+            
         } catch (DivisionByZeroException e) {
-            return "Error: Divide by 0";
+            answer = "Error: Divide by 0";
         } catch (InvalidBinaryNumberException e) {
-            return "Error";
+            answer = "Error";
         }
+        
+        return answer;
     }
 
     public String getName() {

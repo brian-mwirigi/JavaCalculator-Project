@@ -4,15 +4,25 @@ import calculator.abstracts.AbstractBinaryOperation;
 import calculator.exceptions.InvalidBinaryNumberException;
 
 public class BinarySubtraction extends AbstractBinaryOperation {
+    
     public String calculate(String num1, String num2) {
+        String answer = "";
+        
         try {
-            int n1 = binaryToDecimal(num1);
-            int n2 = binaryToDecimal(num2);
-            int result = n1 - n2;
-            return decimalToBinary(result);
+            int decimal1 = binaryToDecimal(num1);
+            int decimal2 = binaryToDecimal(num2);
+            
+            int difference = 0;
+            difference = decimal1 - decimal2;
+            
+            String binaryAnswer = decimalToBinary(difference);
+            answer = binaryAnswer;
+            
         } catch (InvalidBinaryNumberException e) {
-            return "Error";
+            answer = "Error";
         }
+        
+        return answer;
     }
 
     public String getName() {

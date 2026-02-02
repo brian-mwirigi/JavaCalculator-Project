@@ -1,14 +1,10 @@
 package calculator;
 
 import calculator.gui.CalculatorGUI;
-import javax.swing.SwingUtilities;
 
 public class Main {
+    
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new CalculatorGUI();
-            }
-        });
+        new CalculatorGUI();
     }
 }
