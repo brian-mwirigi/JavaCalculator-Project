@@ -3,21 +3,21 @@ package calculator.core;
 import calculator.operations.*;
 
 
-public class BinaryCalculator {
+public class Calculator {
     
 
-    private BinaryAddition addition;
-    private BinarySubtraction subtraction;
-    private BinaryMultiplication multiplication;
-    private BinaryDivision division;
+    private Add addition;
+    private Subtract subtraction;
+    private Multiply multiplication;
+    private Divide division;
 
 
-    public BinaryCalculator() {
+    public Calculator() {
         
-        addition = new BinaryAddition();
-        subtraction = new BinarySubtraction();
-        multiplication = new BinaryMultiplication();
-        division = new BinaryDivision();
+        addition = new Add();
+        subtraction = new Subtract();
+        multiplication = new Multiply();
+        division = new Divide();
     }
 
     public String calculate(String num1, String num2, String operation) {

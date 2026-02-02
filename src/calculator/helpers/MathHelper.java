@@ -1,12 +1,12 @@
-package calculator.abstracts;
+package calculator.helpers;
 
-import calculator.interfaces.BinaryOperation;
-import calculator.interfaces.Validatable;
-import calculator.exceptions.InvalidBinaryNumberException;
+import calculator.interfaces.Operation;
+import calculator.exceptions.BadInputError;
 
-public abstract class AbstractBinaryOperation implements BinaryOperation, Validatable {
+public abstract class MathHelper implements Operation {
     
-    public boolean isValid(String binary) {
+    // Check if a string is a valid binary number (only 0s and 1s)
+    public boolean isValidBinary(String binary) {
         if (binary == null) {
             return false;
         }
@@ -29,10 +29,11 @@ public abstract class AbstractBinaryOperation implements BinaryOperation, Valida
         return valid;
     }
 
-    protected int binaryToDecimal(String binary) throws InvalidBinaryNumberException {
-        boolean check = isValid(binary);
+    // Convert binary string to decimal number
+    protected int toDecimal(String binary) throws BadInputError {
+        boolean check = isValidBinary(binary);
         if (check == false) {
-            throw new InvalidBinaryNumberException("Invalid binary number");
+            throw new BadInputError("Invalid binary number");
         }
         
         int decimal = 0;
@@ -54,7 +55,8 @@ public abstract class AbstractBinaryOperation implements BinaryOperation, Valida
         return decimal;
     }
 
-    protected String decimalToBinary(int decimal) {
+    // Convert decimal number to binary string
+    protected String toBinary(int decimal) {
         if (decimal == 0) {
             return "0";
         }

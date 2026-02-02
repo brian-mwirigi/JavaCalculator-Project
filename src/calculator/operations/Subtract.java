@@ -1,24 +1,24 @@
 package calculator.operations;
 
-import calculator.abstracts.AbstractBinaryOperation;
-import calculator.exceptions.InvalidBinaryNumberException;
+import calculator.helpers.MathHelper;
+import calculator.exceptions.BadInputError;
 
-public class BinarySubtraction extends AbstractBinaryOperation {
+public class Subtract extends MathHelper {
     
     public String calculate(String num1, String num2) {
         String answer = "";
         
         try {
-            int decimal1 = binaryToDecimal(num1);
-            int decimal2 = binaryToDecimal(num2);
+            int decimal1 = toDecimal(num1);
+            int decimal2 = toDecimal(num2);
             
             int difference = 0;
             difference = decimal1 - decimal2;
             
-            String binaryAnswer = decimalToBinary(difference);
+            String binaryAnswer = toBinary(difference);
             answer = binaryAnswer;
             
-        } catch (InvalidBinaryNumberException e) {
+        } catch (BadInputError e) {
             answer = "Error";
         }
         

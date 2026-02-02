@@ -1,6 +1,6 @@
 package calculator.gui;
 
-import calculator.core.BinaryCalculator;
+import calculator.core.Calculator;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -20,11 +20,11 @@ public class CalculatorGUI extends JFrame {
     private String firstNumber = "";
     private String currentOperation = "";
     
-    private BinaryCalculator calculator;
+    private Calculator calculator;
 
     
     public CalculatorGUI() {
-        calculator = new BinaryCalculator();
+        calculator = new Calculator();
         setupGUI();
     }
 
